@@ -1,0 +1,8 @@
+<view class="body">
+
+  <view class="flx-column" style="margin: 0 auto;margin-top:380rpx;">
+    <navigator class="select-box" url="/pages/{{statTarget}}Day/{{statTarget}}Day">按日统计</navigator>
+    <navigator class="select-box" url="/pages/{{statTarget}}Month/{{statTarget}}Month">按月统计</navigator>
+  </view>
+
+</view>

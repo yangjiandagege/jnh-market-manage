@@ -1,0 +1,48 @@
+<view class="flx-row" style="height:150rpx; background-color: #333333;">
+  <view class="selected_target">每日进场商品统计</view>
+  <view class="selected_date">
+    <view style="text-align:center">2017年06月15日</view>
+    <image class="select_icon" src="/image/down.png"></image>
+  </view>
+</view>
+
+<view class="weui-tab">
+    <view class="weui-navbar">
+        <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                <view class="weui-navbar__title" style="{{activeIndex == index ? 'color:#2c89f8' : ''}}">{{item}}</view>
+            </view>
+        </block>
+        <view class="weui-navbar__slider" style="width:{{750/tabs.length}}rpx;background-color:#2c89f8;transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <view class="weui-tab__panel">
+        <!--垂直滚动，这里必须设置高度-->
+        <scroll-view scroll-y="true" style="height:{{scrollHeight}}px;" 
+            bindscrolltolower="bindDownLoad" bindscroll="scroll" hidden="{{activeIndex != 0}}">
+          <view class="weui-cells weui-cells_after-title" style="margin-top:20rpx;">
+            <view wx:for="{{listForCar}}">
+              <view class="weui-cell">
+                  <view class="weui-cell__bd">{{item.goodsType}}</view>
+                  <view class="weui-cell__ft">{{item.goodsNum}}车次</view>
+              </view>
+            </view>
+          </view>
+
+          <view class="total">总计：289车次</view>
+        </scroll-view>
+
+        <scroll-view scroll-y="true" style="height:{{scrollHeight}}px;" 
+            bindscrolltolower="bindDownLoad" bindscroll="scroll" hidden="{{activeIndex != 1}}">
+          <view class="weui-cells weui-cells_after-title" style="margin-top:20rpx;">
+            <view wx:for="{{listForNum}}">
+              <view class="weui-cell">
+                  <view class="weui-cell__bd">{{item.goodsType}}</view>
+                  <view class="weui-cell__ft">{{item.goodsNum}}件</view>
+              </view>
+            </view>
+          </view>
+
+          <view class="total">总计：689件</view>
+        </scroll-view>
+    </view>
+</view>

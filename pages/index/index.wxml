@@ -1,0 +1,24 @@
+<import src="/style/acce-widget/foot.wxml" />
+<view class="body-wrap">
+
+  <view class="flx-cln" wx:if="{{user!=null}}">
+    <image src="{{userInfo.avatarUrl}}" class="logo"></image>
+    <text class="player-name">{{userInfo.nickName}}</text>
+  </view>
+  <view class="flx-cln" wx:else>
+    <image src="{{userInfo.avatarUrl}}" class="logo"></image>
+    <navigator url="/pages/register/register" class="player-name" >您还没有注册，请点击这里注册</navigator>
+  </view>
+
+  <navigator class="item" url="/pages/statTypeSelect/statTypeSelect?statTarget=statForCar">
+    进场车辆统计
+  </navigator>
+
+  <navigator class="item" url="/pages/statTypeSelect/statTypeSelect?statTarget=statForGoods">
+    进场商品统计
+  </navigator>
+
+  <navigator class="item" url="/pages/statTypeSelect/statTypeSelect">
+    商户交易货量统计
+  </navigator>
+</view>
